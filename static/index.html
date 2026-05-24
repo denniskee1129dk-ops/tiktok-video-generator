@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>TikTok 带货视频生成器</title>
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="page">
+    <header class="hero">
+      <p class="tag">AI Video Script Generator</p>
+      <h1>TikTok 带货视频生成器</h1>
+      <p class="desc">输入产品信息，一键生成更适合 TikTok 带货的视频脚本、分镜、字幕和标签。</p>
+    </header>
+
+    <main class="layout">
+      <section class="card">
+        <h2>产品信息</h2>
+        <form id="videoForm">
+          <div class="form-group">
+            <label>产品名称</label>
+            <input id="productName" type="text" placeholder="例如：便携榨汁杯" required />
+          </div>
+
+          <div class="form-group">
+            <label>目标用户</label>
+            <input id="targetAudience" type="text" placeholder="例如：上班族、学生、健身人群" required />
+          </div>
+
+          <div class="form-group">
+            <label>核心卖点</label>
+            <textarea id="sellingPoints" placeholder="例如：无线便携、30秒榨汁、容易清洗" required></textarea>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>价格</label>
+              <input id="price" type="text" placeholder="例如：RM59" required />
+            </div>
+            <div class="form-group">
+              <label>视频时长</label>
+              <select id="duration">
+                <option value="15">15 秒</option>
+                <option value="30" selected>30 秒</option>
+                <option value="60">60 秒</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group">
+              <label>视频风格</label>
+              <select id="style">
+                <option value="轻松、种草、快节奏" selected>轻松、种草、快节奏</option>
+                <option value="搞笑、反差、快节奏">搞笑、反差、快节奏</option>
+                <option value="高级感、质感、商业广告">高级感、质感、商业广告</option>
+                <option value="测评、真实体验、转化">测评、真实体验、转化</option>
+                <option value="开箱、生活方式、自然">开箱、生活方式、自然</option>
+              </select>
+            </div>
+
+            <div class="form-group">
+              <label>输出语言</label>
+              <select id="language">
+                <option value="中文" selected>中文</option>
+                <option value="英文">英文</option>
+              </select>
+            </div>
+          </div>
+
+          <div class="form-group">
+            <label>模板选择</label>
+            <select id="templateType">
+              <option value="痛点带货" selected>痛点带货</option>
+              <option value="开箱测评">开箱测评</option>
+              <option value="对比测评">对比测评</option>
+              <option value="口播种草">口播种草</option>
+            </select>
+          </div>
+
+          <button id="generateBtn" type="submit">生成 TikTok 带货脚本</button>
+        </form>
+      </section>
+
+      <section class="card">
+        <div class="result-header">
+          <h2>生成结果</h2>
+          <div>
+            <button id="copyBtn" class="secondary-btn" type="button">复制结果</button>
+            <button id="downloadBtn" class="secondary-btn" type="button">导出 TXT</button>
+          </div>
+        </div>
+
+        <div id="loading" class="loading hidden">正在生成，请稍候…</div>
+        <div id="emptyState" class="empty">结果会显示在这里。</div>
+        <div id="result" class="result hidden"></div>
+      </section>
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
